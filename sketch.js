@@ -72,7 +72,7 @@ function mouseClicked() {
   if (dist(131, 978, mouseX, mouseY) < 100) {
     screenCounter = 1;
   }
-  //pasa de menu a home
+  //devuelve de menu a home
   if (screenCounter === 1) {
     if (dist(41, 46, mouseX, mouseY) < 100) {
       screenCounter = 0;
@@ -84,7 +84,7 @@ function mouseClicked() {
       screenCounter = 2;
     }
   }
-  //pasa de codigo a menu
+  //devuelve de codigo a menu
   if (screenCounter === 2) {
     if (dist(41, 46, mouseX, mouseY) < 100) {
       screenCounter = 1;
@@ -92,11 +92,11 @@ function mouseClicked() {
   }
   //pasa de codigo a cancion
   if (screenCounter === 2) {
-    if (dist(209, 663, mouseX, mouseY) < 50) {
+    if (dist(204, 570, mouseX, mouseY) < 50) {
       screenCounter = 3;
     }
   }
-  //pasa de cancion a codigo
+  //devuelve de cancion a codigo
   if (screenCounter === 3) {
     if (dist(41, 46, mouseX, mouseY) < 100) {
       screenCounter = 2;
