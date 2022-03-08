@@ -3,7 +3,8 @@ let toolBar;
 let imgMenu;
 let imgCodigo;
 let imgCancion;
-
+let imgEmail;
+let correos = [];
 let screenCounter = 0;
 
 function preload() {
@@ -12,11 +13,11 @@ function preload() {
   imgMenu = loadImage('assets/Menu.png');
   imgCodigo = loadImage('assets/Codigo.png');
   imgCancion = loadImage('assets/Cancion.png');
+  imgEmail = loadImage('assets/Email.png');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight + 1103 - windowHeight);
-
 }
 
 function draw() {
@@ -30,13 +31,16 @@ function draw() {
     case 1:
       menu();
       break;
-    case 2:
-      codigo();
+      case 2:
+      email();
       break;
     case 3:
-      cancion();
+      codigo();
       break;
     case 4:
+      cancion();
+      break;
+    case 5:
 
       break;
 
@@ -54,6 +58,22 @@ function menu() {
   fill(17, 17, 17);
   noStroke();
   rect(0, 925, width, height);
+}
+function email() {
+  image(imgEmail, 0, 0);
+  fill(17, 17, 17);
+  noStroke();
+  rect(0, 925, width, height);
+
+  input = createInput();
+  input.position(78, 500);
+
+  button = createButton('submit');
+  button.position(input.x + input.width, 500);
+  button.mousePressed();
+  
+  textAlign(CENTER);
+  textSize(50);
 }
 function codigo() {
   image(imgCodigo, 0, 0);
@@ -78,25 +98,25 @@ function mouseClicked() {
       screenCounter = 0;
     }
   }
-  //pasa de menu a codigo
+  //pasa de menu a email
   if (screenCounter === 1) {
     if (dist(209, 663, mouseX, mouseY) < 50) {
       screenCounter = 2;
     }
   }
-  //devuelve de codigo a menu
+  //devuelve de email a menu
   if (screenCounter === 2) {
     if (dist(41, 46, mouseX, mouseY) < 100) {
       screenCounter = 1;
     }
   }
-  //pasa de codigo a cancion
+  //pasa de email a codigo
   if (screenCounter === 2) {
-    if (dist(204, 570, mouseX, mouseY) < 50) {
+    if (dist(213, 785, mouseX, mouseY) < 50) {
       screenCounter = 3;
     }
   }
-  //devuelve de cancion a codigo
+  //devuelve de codigo a email
   if (screenCounter === 3) {
     if (dist(41, 46, mouseX, mouseY) < 100) {
       screenCounter = 2;
